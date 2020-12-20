@@ -20,6 +20,12 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount() {
+    axios.get(`http://www.omdbapi.com/?apikey=bd9f9eb5&s=$avengers`)
+      .then(response => this.setState({ movies: response.data.Search }))
+      .catch(error => console.error(error))
+  }
+
   handleChange = e => {
     this.setState({ searchField: e.target.value })
   }
@@ -30,21 +36,6 @@ class App extends React.Component {
       .then(response => this.setState({ movies: response.data.Search }, () => console.log(response.data.Search)))
       .catch(error => console.error(error))
   }
-
-  // clickHandler() {
-  //   this.setState((prevState) => ({
-  //     isToggleOn: !prevState.isToggleOn
-  //   }))
-  //   console.log(this)
-  // }
-
-  // clickHandler2() {
-  //   console.log(this)
-  // }
-
-  // greetParent = (childName) => {
-  //   alert(`Hello ${this.state.parent} from ${childName}`)
-  // }
 
   render() {
     const { movies } = this.state;
