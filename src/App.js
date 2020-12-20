@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(`http://www.omdbapi.com/?apikey=bd9f9eb5&s=$avengers`)
+    axios.get(`https://www.omdbapi.com/?apikey=bd9f9eb5&s=$avengers`)
       .then(response => this.setState({ movies: response.data.Search }))
       .catch(error => console.error(error))
   }
@@ -32,7 +32,7 @@ class App extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    axios.get(`http://www.omdbapi.com/?apikey=bd9f9eb5&s=${this.state.searchField}`)
+    axios.get(`https://www.omdbapi.com/?apikey=bd9f9eb5&s=${this.state.searchField}`)
       .then(response => this.setState({ movies: response.data.Search }, () => console.log(response.data.Search)))
       .catch(error => console.error(error))
   }
