@@ -17,7 +17,7 @@ class Cards extends React.Component {
     }
 
     handleShow = (imdbid) => {
-        axios.get(`http://www.omdbapi.com/?apikey=bd9f9eb5&i=${imdbid}`)
+        axios.get(`https://www.omdbapi.com/?apikey=bd9f9eb5&i=${imdbid}`)
             .then(response => this.setState({ detailMovie: response.data }, () => console.log(response.data.Ratings)));
         this.setState({ setShow: true, show: true })
     }
